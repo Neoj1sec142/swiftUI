@@ -1,29 +1,19 @@
 import Cocoa
 
-//assign func to func
-func multiplyBy2(_ num: Int) -> Int{
-    return num * 2
+// arrays - must have same data type
+var array1 = [Int]()
+print("Empty: \(array1.isEmpty)")
+array1.append(5)
+array1 += [7,9]
+print("index 0: \(array1[0])")
+print("index 1: \(array1[0])")
+array1.insert(10, at: 3)
+array1.remove(at: 2)
+array1[0...2] = [1,2,3]
+print("Length: \(array1.count)")
+var array2 = Array(repeating: 0, count: 5)
+var array3 = array1 + array2
+for (index, value) in array3.enumerated(){
+    print("\(index) : \(value)")
 }
-var timesTwo = multiplyBy2
-print("4 * 2 = \(timesTwo(4))")
-// asign func to run func
-func runFunc(_ f:() -> ()){
-    f()
-}
-func print4() -> Void{
-    print("4")
-}
-runFunc(print4)
-
-func doMath(_ f:(Int) -> Int, _ x: Int){
-    print("Result: \(f(x))")
-}
-doMath(timesTwo, 4)
-func funcMaker(val: Int) -> (Int) -> Int{
-    func addVals(num1: Int) -> Int{
-        return num1 + val
-    }
-    return addVals
-}
-let add4 = funcMaker(val: 4)
-print("4 + 5 \(add4(5))")
+print(array3[1...2])
